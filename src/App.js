@@ -10,8 +10,7 @@ import { nanoid } from 'nanoid';
 
 export default function App() {
   const contacts = useSelector(state => state.contacts.items);
-  const filter = useSelector(state => state.contacts.filter);
-  console.log(contacts);
+  const filter = useSelector(state => state.filter.filter);
 
   const contactCheck = (name, number) => {
     const item = contacts.find(
@@ -24,7 +23,6 @@ export default function App() {
     };
 
     if (item) {
-      alert(`${name} is already in contacts.`);
       return;
     }
 

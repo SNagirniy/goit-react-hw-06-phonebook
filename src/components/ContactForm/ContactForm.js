@@ -27,6 +27,12 @@ export default function ContactForm({ onSubmit }) {
 
   const handleSubmit = e => {
     e.preventDefault();
+    if (!onSubmit(name, number)) {
+      alert(`${name} is already in contacts.`);
+      setName('');
+      setNumber('');
+      return;
+    }
     dispatch(updateItems(onSubmit(name, number)));
     setName('');
     setNumber('');
